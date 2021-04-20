@@ -2795,6 +2795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2020d3b162d3d643b24a8054cb77c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeRemaining: 1
+  range: 0
   firstPatrol: 1
   waypointAdd: 1
   waypoints:
