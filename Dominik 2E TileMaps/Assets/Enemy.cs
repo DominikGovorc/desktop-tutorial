@@ -8,21 +8,25 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag=="Player")
         {
-
+            other.GetComponent<Movement>().health-=damage;
+            gameObject.GetComponent<explode>().OnExplode();
+            GameManager.AddScore(-20);
+            Destroy(gameObject);
         }
     }
     public float timeRemaining=1f;
+    public float damage;
     public float range;
     public bool firstPatrol;
     public bool waypointAdd;
-    public Transform[] waypoints;
+    public GameObject[] waypoints;
     public float enemySpeed = 0.2f;
     public int waypointIndex;
     public Rigidbody2D rb;
      [Header("Main bool for action")]
     public bool attacking;
     private void Start() {
-        this.transform.position = GameObject.Find("Waypoint").transform.position;
+        transform.position = waypoints[0].transform.position;
         waypointAdd=true;
     }
     private void Update() {

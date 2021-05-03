@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     public bool isRight;
 
     public float runSpeed = 10.0f;
-
+    public float health=100f;
     void Start()
     {
 
@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
         {
             isRight=true;
         }
-        if(Input.GetKeyDown(KeyCode.K))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             var obj = Instantiate(bullet,transform.position, Quaternion.identity) as GameObject;
             obj.GetComponent<Bullet>().isRight=isRight;
